@@ -27,7 +27,12 @@ const teacherSchema = new mongoose.Schema({
     courses: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Course'
-    }]
+    },
+    ],
+    role: {
+        type: String,
+        default: "Teacher"
+    }
 });
 
 const Teacher = mongoose.model('Teacher', teacherSchema);

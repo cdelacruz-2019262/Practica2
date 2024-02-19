@@ -1,5 +1,8 @@
-import { initServer } from "./configs/app.js"
-import { connect } from "./configs/mongo.js"
+import app from './configs/app.js';
 
-initServer()
-connect()
+const PORT = process.env.PORT || 3000;
+
+// Iniciar servidor
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});

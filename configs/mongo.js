@@ -1,11 +1,12 @@
 import mongoose from 'mongoose';
 
 import bcrypt from 'bcrypt';
-import Teacher from '../src/teacher/teacherModel.js';
+import Teacher from '../src/teacher/teacher.model.js';
 
 export const connectDB = async () => {
     try {
         mongoose.set('strictQuery', true);
+
         // Proceso de conexión
         mongoose.connection.on('error', () => {
             console.log('MongoDB | could not be connect to mongodb');
@@ -20,17 +21,17 @@ export const connectDB = async () => {
         mongoose.connection.once('open', async () => {
             console.log('MongoDB | connected to database');
 
-            // Verificar si hay algún maestro en la base de datos
+            // Verificar si hay algún maestro.
             const existingTeacher = await Teacher.findOne();
 
             // Si no hay ningún maestro, crear uno por defecto
             if (!existingTeacher) {
-                const hashedPassword = await bcrypt.hash('admin123', 10); // Encriptar la contraseña
+                const hashedPassword = await bcrypt.hash('123', 10); // Encriptar la contraseña
                 const defaultTeacher = new Teacher({
                     name: 'defaultTeacher',
                     surname: 'default',
-                    username: 'admin',
-                    password: hashedPassword, // Asignar la contraseña encriptada
+                    username: 'default',
+                    password: hashedPassword, 
                     email: 'teacher@example.com',
                     versionKey: false
                 });
@@ -38,9 +39,11 @@ export const connectDB = async () => {
                 console.log('Default teacher created:', defaultTeacher);
             }
         });
+
         mongoose.connection.on('reconnected', () => {
             console.log('MongoDB | reconnected to mongodb');
         });
+
         mongoose.connection.on('disconnected', () => {
             console.log('MongoDB | disconnected');
         });

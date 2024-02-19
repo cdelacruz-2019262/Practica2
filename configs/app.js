@@ -1,34 +1,45 @@
-'use strict'
+import express from 'express';
+import dotenv from 'dotenv';
+import morgan from 'morgan';
+import helmet from 'helmet';
+import cors from 'cors';
+import authRoutes from '../src/auth/auth.routes.js';
+import teacherRoutes from '../src/teacher/teacher.routes.js';
+import studentRoutes from '../src/student/student.routes.js'
+import { connectDB } from './mongo.js';
+import { validateJwt, errorHandler } from '../src/middlewares/validate-jwt.js';
 
-//Importaciones
-import express from 'express'
-import morgan from 'morgan'
-import helmet from 'helmet'
-import cors from 'cors'
-import { config } from "dotenv"
+// conexiones
+dotenv.config();
 
-const app = express()
-config();
-const port = process.env.PORT || 3056
+const app = express();
+const PORT = process.env.PORT || 2056;
 
-app.use(express.urlencoded({extended: false}))
-app.use(express.json())
-app.use(cors())
-app.use(helmet())
-app.use(morgan('dev')) 
+connectDB();
 
-//definir las rutas
+// Configurar middleware
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(cors());
+app.use(helmet());
+app.use(morgan('dev'));
+
+// Definir rutas
 app.use('/auth', authRoutes);
-app.use('/teacher', teacherRoutes);
+app.use('/courses', teacherRoutes);
+app.use('/student', studentRoutes);
 
 
-//levantar el server
-export const initServer = ()=>{
-    app.listen(port)
-    console.log(`Server HTTP running in port ${port}`)
-}
+// Ruta de inicio
+app.get('/', (req, res) => {
+    res.send('Welcome to School Management System');
+});
 
 app.use(validateJwt);
+
 app.use(errorHandler);
 
+
+// Exportar la aplicación Express configurada
 export default app;
+
