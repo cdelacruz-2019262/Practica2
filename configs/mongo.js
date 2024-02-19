@@ -31,8 +31,7 @@ export const connectDB = async () => {
                     surname: 'default',
                     username: 'admin',
                     password: hashedPassword, // Asignar la contraseña encriptada
-                    email: 'admin@example.com',
-                    role: 'TEACHER',
+                    email: 'teacher@example.com',
                     versionKey: false
                 });
                 await defaultTeacher.save();

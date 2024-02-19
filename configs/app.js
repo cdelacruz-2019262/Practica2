@@ -18,6 +18,8 @@ app.use(helmet())
 app.use(morgan('dev')) 
 
 //definir las rutas
+app.use('/auth', authRoutes);
+app.use('/teacher', teacherRoutes);
 
 
 //levantar el server
@@ -25,5 +27,8 @@ export const initServer = ()=>{
     app.listen(port)
     console.log(`Server HTTP running in port ${port}`)
 }
+
+app.use(validateJwt);
+app.use(errorHandler);
 
 export default app;
