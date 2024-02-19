@@ -28,15 +28,15 @@ export const validateJwt = (req, res, next) => {
         return res.status(401).json({ message: 'Invalid authentication token', err });
     }
 
-    try{
+    try {
         return jwt.sign(payload, secretKey, {
-         expiresIn: '5h',
-         algorithm: 'HS256'
-       })  
-     }catch(err){
-         console.error(err)
-         return err
-     }
+            expiresIn: '5h',
+            algorithm: 'HS256'
+        })
+    } catch (err) {
+        console.error(err)
+        return err
+    }
 };
 
 export const errorHandler = (err, req, res, next) => {
@@ -44,4 +44,3 @@ export const errorHandler = (err, req, res, next) => {
     res.status(500).send({ message: 'Internal Server Error' });
 };
 
-    
