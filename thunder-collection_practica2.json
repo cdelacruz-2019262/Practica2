@@ -1,0 +1,256 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "practica2",
+    "dateExported": "2024-02-23T06:45:19.073Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "2632e323-bff5-46de-b724-2e9b4f562f26",
+            "name": "auth",
+            "containerId": "",
+            "created": "2024-02-23T05:19:21.309Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "e51ff8a2-a88c-4ad0-89e7-c4b65c854f03",
+            "name": "courses",
+            "containerId": "",
+            "created": "2024-02-23T05:38:30.309Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "dd54ee9b-81d7-4708-813f-3fb55f9b0fcc",
+            "name": "student",
+            "containerId": "",
+            "created": "2024-02-23T06:31:13.769Z",
+            "sortNum": 40000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "1d4ef70d-a589-438c-999f-dff9c4465f8f",
+            "colId": "588bceea-173e-4e42-99a1-74d78732077c",
+            "containerId": "2632e323-bff5-46de-b724-2e9b4f562f26",
+            "name": "new student",
+            "url": "/auth/register/student",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-02-23T05:19:40.962Z",
+            "modified": "2024-02-23T05:32:15.983Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "Josue"
+                    },
+                    {
+                        "name": "surname",
+                        "value": "Noj"
+                    },
+                    {
+                        "name": "username",
+                        "value": "jnoj"
+                    },
+                    {
+                        "name": "email",
+                        "value": "jnoj@kinal.edu.gt"
+                    },
+                    {
+                        "name": "password",
+                        "value": "1"
+                    },
+                    {
+                        "name": "token",
+                        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDgyYjI1ZGYxNTUzMjBkZGI2MGQxYyIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzA4NjY2MTU3fQ.Fs6SlCKOeHUgWYvvWC0kDTWEqCmlhKzEePHarq7j2lE"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "c87f7648-f376-49ee-90fe-367cb48fd0ba",
+            "colId": "588bceea-173e-4e42-99a1-74d78732077c",
+            "containerId": "2632e323-bff5-46de-b724-2e9b4f562f26",
+            "name": "new teacher",
+            "url": "/auth/register/teacher",
+            "method": "POST",
+            "sortNum": 15000,
+            "created": "2024-02-23T05:30:11.242Z",
+            "modified": "2024-02-23T06:43:17.429Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDgyYjI1ZGYxNTUzMjBkZGI2MGQxYyIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzA4NjcwNDgyfQ.1dfaktB_8JWjkNoanQgWzqA_Ff9nDk7hsnMxEmeUaiY"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "Christian"
+                    },
+                    {
+                        "name": "surname",
+                        "value": "Itzep"
+                    },
+                    {
+                        "name": "username",
+                        "value": "1ceil"
+                    },
+                    {
+                        "name": "email",
+                        "value": "ceil@gmail.com",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "password",
+                        "value": "1"
+                    },
+                    {
+                        "name": "token",
+                        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDgyYjI1ZGYxNTUzMjBkZGI2MGQxYyIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzA4NjcwNDgyfQ.1dfaktB_8JWjkNoanQgWzqA_Ff9nDk7hsnMxEmeUaiY"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "33feb640-336a-4926-ad15-e38e6304f553",
+            "colId": "588bceea-173e-4e42-99a1-74d78732077c",
+            "containerId": "2632e323-bff5-46de-b724-2e9b4f562f26",
+            "name": "login",
+            "url": "/auth/login",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-02-23T05:27:41.132Z",
+            "modified": "2024-02-23T06:41:22.849Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "username",
+                        "value": "default"
+                    },
+                    {
+                        "name": "password",
+                        "value": "123"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "840fef7f-2637-4646-b4ae-e6f5076f721f",
+            "colId": "588bceea-173e-4e42-99a1-74d78732077c",
+            "containerId": "e51ff8a2-a88c-4ad0-89e7-c4b65c854f03",
+            "name": "new course",
+            "url": "/courses/createCourse",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2024-02-23T05:38:49.992Z",
+            "modified": "2024-02-23T06:08:23.169Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDgyYjI1ZGYxNTUzMjBkZGI2MGQxYyIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzA4NjY2MTU3fQ.Fs6SlCKOeHUgWYvvWC0kDTWEqCmlhKzEePHarq7j2lE",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "matematicas"
+                    },
+                    {
+                        "name": "description",
+                        "value": "matematica algebraica y geometrica"
+                    },
+                    {
+                        "name": "teacher",
+                        "value": "65d82b25df155320ddb60d1c"
+                    },
+                    {
+                        "name": "token",
+                        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDgyYjI1ZGYxNTUzMjBkZGI2MGQxYyIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzA4NjY2MTU3fQ.Fs6SlCKOeHUgWYvvWC0kDTWEqCmlhKzEePHarq7j2lE"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "4705c179-338d-4aa3-ab9d-3d541bb1105f",
+            "colId": "588bceea-173e-4e42-99a1-74d78732077c",
+            "containerId": "e51ff8a2-a88c-4ad0-89e7-c4b65c854f03",
+            "name": "new course Copy",
+            "url": "/courses/createCourse",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2024-02-23T06:10:53.757Z",
+            "modified": "2024-02-23T06:10:53.757Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDgyYjI1ZGYxNTUzMjBkZGI2MGQxYyIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzA4NjY2MTU3fQ.Fs6SlCKOeHUgWYvvWC0kDTWEqCmlhKzEePHarq7j2lE",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "matematicas"
+                    },
+                    {
+                        "name": "description",
+                        "value": "matematica algebraica y geometrica"
+                    },
+                    {
+                        "name": "teacher",
+                        "value": "65d82b25df155320ddb60d1c"
+                    },
+                    {
+                        "name": "token",
+                        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDgyYjI1ZGYxNTUzMjBkZGI2MGQxYyIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzA4NjY2MTU3fQ.Fs6SlCKOeHUgWYvvWC0kDTWEqCmlhKzEePHarq7j2lE"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "7e475337-faec-4cf3-86e2-98d015437dec",
+            "colId": "588bceea-173e-4e42-99a1-74d78732077c",
+            "containerId": "dd54ee9b-81d7-4708-813f-3fb55f9b0fcc",
+            "name": "view courses",
+            "url": "/student/courses",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2024-02-23T06:31:28.686Z",
+            "modified": "2024-02-23T06:31:39.682Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ],
+    "settings": {
+        "options": {
+            "baseUrl": "localhost:3000"
+        }
+    }
+}
