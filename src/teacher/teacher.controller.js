@@ -5,12 +5,15 @@ import Student from '../student/student.model.js';
 export const createCourse = async (req, res) => {
     try {
         //Crear un nuevo curso
-        const newCourse = await Course.create({
+        /*const newCourse = await Course.create({
             name: req.body.name,
             description: req.body.description,
             teacher: req.user.id
-        });
-        res.status(201).send({ message: `Curso ${newCourse} creado exitosamente` });
+        });*/
+        let data = req.body
+        let course = new Course(data)
+        await course.save()
+        res.status(201).send({ message: `Curso creado exitosamente` });
 
     } catch (error) {
         console.error(error);
