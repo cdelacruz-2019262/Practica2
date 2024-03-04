@@ -2,32 +2,30 @@ import Student from '../student/student.model.js';
 import Course from '../auth/course.model.js';
 
 export const asignCourse = async (req, res) => {
-    try {
-        // Verifica si el estudiante ya está asignado al máximo de cursos permitidos
+    try { 
         const student = await Student.findById(req.user.id).populate('courses');
+        
         if (student.courses.length >= 3) {
-            return res.status(400).json({ message: 'Ya está asignado al máximo de cursos permitidos.' });
+            return res.status(400).json({ message: 'Already assigned to the maximum number of courses.' });
         }
 
-        // Verifica si el curso ya esta asignado
         if (student.courses.some(course => course._id.toString() === req.params.courseId)) {
-            return res.status(400).json({ message: 'Ya está asignado a este curso.' });
+            return res.status(400).json({ message: 'Already assigned to this course.' });
         }
 
-        // Verifica si el curso existe
         const course = await Course.findById(req.params.courseId);
         if (!course) {
-            return res.status(404).json({ message: 'Curso no encontrado.' });
+            return res.status(404).json({ message: 'Course not found.' });
         }
 
-        // Asignar el curso
         student.courses.push(course);
         await student.save();
 
-        res.status(200).json({ message: 'Curso asignado exitosamente.' });
+        res.status(200).json({ message: 'Course assigned successfully.' });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: 'Error al asignar el curso.' });
+        res.status(500).json({ message: 'Error assigning the course.' });
+        console.log('Contenido de req.student:', req.student)
     }
 };
 
@@ -45,31 +43,35 @@ export const viewCourses = async (req, res) => {
 
 export const editProfile = async (req, res) => {
     try {
-        const student = await Student.findById(req.user.id);
-        if (!student) {
-            return res.status(404).json({ message: 'Estudiante no encontrado.' });
-        }
-
-        student.username = req.body.username || student.username;
-        student.email = req.body.email || student.email;
-
-        await student.save();
-
-        res.status(200).json({ message: 'Perfil actualizado exitosamente.' });
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: 'Error al actualizar el perfil.' });
+        let { id } = req.params
+        let data = req.body
+        let updatedStudent = await Student.findOneAndUpdate(
+            { _id: id },
+            data,
+            { new: true }
+        )
+        //Validar la actualización
+        if (!updatedStudent) return res.status(401).send({ message: 'Student not found and not updated' })
+        //Respondo al usuario
+        return res.send({ message: 'Updated student', updatedStudent })
+    } catch (err) {
+        console.error(err)
+        return res.status(500).send({ message: 'Error updating account' })
     }
 };
 
 // Eliminar al estudiante
-export const deleteProfile = async (req, res) => {
+export const deleteStudent = async (req, res) => {
     try {
-        await Student.findByIdAndDelete(req.user.id);
+        //obtener id
+        let { id } = req.params
+        let deletedStudent = await Student.findOneAndDelete({ _id: id })
+        //verificacion
+        if (!deletedStudent) return res.status(404).send({ message: 'Student not found and not deleted' })
+        return res.send({ message: `Student whit name ${deletedStudent.name} deleted successfully` })
 
-        res.status(200).json({ message: 'Perfil eliminado exitosamente.' });
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: 'Error al eliminar el perfil.' });
+    } catch (err) {
+        console.error(err)
+        return res.status(500).send({ message: `error deleting Student` })
     }
-};
+}

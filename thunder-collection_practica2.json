@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "practica2",
-    "dateExported": "2024-02-23T06:45:19.073Z",
+    "dateExported": "2024-03-04T05:00:38.243Z",
     "version": "1.1",
     "folders": [
         {
@@ -24,6 +24,13 @@
             "containerId": "",
             "created": "2024-02-23T06:31:13.769Z",
             "sortNum": 40000
+        },
+        {
+            "_id": "2aa9b702-9566-40a2-905e-6d895915cef5",
+            "name": "teacher",
+            "containerId": "",
+            "created": "2024-03-04T04:13:23.584Z",
+            "sortNum": 50000
         }
     ],
     "requests": [
@@ -80,11 +87,11 @@
             "method": "POST",
             "sortNum": 15000,
             "created": "2024-02-23T05:30:11.242Z",
-            "modified": "2024-02-23T06:43:17.429Z",
+            "modified": "2024-03-04T03:10:29.273Z",
             "headers": [
                 {
                     "name": "token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDgyYjI1ZGYxNTUzMjBkZGI2MGQxYyIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzA4NjcwNDgyfQ.1dfaktB_8JWjkNoanQgWzqA_Ff9nDk7hsnMxEmeUaiY"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDgyYjI1ZGYxNTUzMjBkZGI2MGQxYyIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzA5NTIxODE4fQ.zuL7wyVOK2Ti1Zi9_rN_vXjOqUPFhe56m0emBCdEMas"
                 }
             ],
             "params": [],
@@ -102,20 +109,15 @@
                     },
                     {
                         "name": "username",
-                        "value": "1ceil"
-                    },
-                    {
-                        "name": "email",
-                        "value": "ceil@gmail.com",
-                        "isDisabled": true
+                        "value": "cell"
                     },
                     {
                         "name": "password",
                         "value": "1"
                     },
                     {
-                        "name": "token",
-                        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDgyYjI1ZGYxNTUzMjBkZGI2MGQxYyIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzA4NjcwNDgyfQ.1dfaktB_8JWjkNoanQgWzqA_Ff9nDk7hsnMxEmeUaiY"
+                        "name": "email",
+                        "value": "ceil@gmail.com"
                     }
                 ]
             },
@@ -130,7 +132,7 @@
             "method": "POST",
             "sortNum": 20000,
             "created": "2024-02-23T05:27:41.132Z",
-            "modified": "2024-02-23T06:41:22.849Z",
+            "modified": "2024-03-04T03:08:50.052Z",
             "headers": [],
             "params": [],
             "body": {
@@ -158,12 +160,11 @@
             "method": "POST",
             "sortNum": 50000,
             "created": "2024-02-23T05:38:49.992Z",
-            "modified": "2024-02-23T06:08:23.169Z",
+            "modified": "2024-03-04T02:24:02.400Z",
             "headers": [
                 {
                     "name": "token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDgyYjI1ZGYxNTUzMjBkZGI2MGQxYyIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzA4NjY2MTU3fQ.Fs6SlCKOeHUgWYvvWC0kDTWEqCmlhKzEePHarq7j2lE",
-                    "isDisabled": true
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDgyYjI1ZGYxNTUzMjBkZGI2MGQxYyIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzA5NTE2NjQ0fQ.IRxKmGG2ZV2pV7bLKIM_u1HMOLFt8UeO25KX_JybTwE"
                 }
             ],
             "params": [],
@@ -185,7 +186,8 @@
                     },
                     {
                         "name": "token",
-                        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDgyYjI1ZGYxNTUzMjBkZGI2MGQxYyIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzA4NjY2MTU3fQ.Fs6SlCKOeHUgWYvvWC0kDTWEqCmlhKzEePHarq7j2lE"
+                        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDgyYjI1ZGYxNTUzMjBkZGI2MGQxYyIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzA4NjY2MTU3fQ.Fs6SlCKOeHUgWYvvWC0kDTWEqCmlhKzEePHarq7j2lE",
+                        "isDisabled": true
                     }
                 ]
             },
@@ -243,6 +245,96 @@
             "sortNum": 70000,
             "created": "2024-02-23T06:31:28.686Z",
             "modified": "2024-02-23T06:31:39.682Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "fda730e0-239e-45f8-8636-36a3e7364756",
+            "colId": "588bceea-173e-4e42-99a1-74d78732077c",
+            "containerId": "dd54ee9b-81d7-4708-813f-3fb55f9b0fcc",
+            "name": "asignar curso",
+            "url": "/student/courses/65d83657a267411cfb9e681d/assign",
+            "method": "POST",
+            "sortNum": 80000,
+            "created": "2024-03-04T02:43:54.329Z",
+            "modified": "2024-03-04T03:10:40.751Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDgyYjI1ZGYxNTUzMjBkZGI2MGQxYyIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzA5NTIxODE4fQ.zuL7wyVOK2Ti1Zi9_rN_vXjOqUPFhe56m0emBCdEMas"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "144b7485-2305-41e1-9df4-8bde802fd3d8",
+            "colId": "588bceea-173e-4e42-99a1-74d78732077c",
+            "containerId": "dd54ee9b-81d7-4708-813f-3fb55f9b0fcc",
+            "name": "update student",
+            "url": "/student/update/65d82d3f735ae170aa9d9ebd",
+            "method": "PUT",
+            "sortNum": 90000,
+            "created": "2024-03-04T03:59:24.644Z",
+            "modified": "2024-03-04T04:01:37.345Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "surname",
+                        "value": "de la cruz Gómez"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "73c468e4-31f8-45fd-a0b8-d12024af07a5",
+            "colId": "588bceea-173e-4e42-99a1-74d78732077c",
+            "containerId": "dd54ee9b-81d7-4708-813f-3fb55f9b0fcc",
+            "name": "delete student",
+            "url": "/student/deleteProfile/65d82ddf735ae170aa9d9ec1",
+            "method": "DELETE",
+            "sortNum": 100000,
+            "created": "2024-03-04T04:03:31.866Z",
+            "modified": "2024-03-04T04:08:36.312Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDgyYjI1ZGYxNTUzMjBkZGI2MGQxYyIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzA5NTIzMzI4fQ.-O6M4O1XDDylg9JMKHvZuOm0UoRpjlSccfJCHEGOiLM"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "bc3e0039-a3ce-4595-afab-ebcc5a295b0e",
+            "colId": "588bceea-173e-4e42-99a1-74d78732077c",
+            "containerId": "2aa9b702-9566-40a2-905e-6d895915cef5",
+            "name": "delete course",
+            "url": "/courses/deleteCourse/65e530c26f50326ca88ca193",
+            "method": "DELETE",
+            "sortNum": 110000,
+            "created": "2024-03-04T04:22:49.131Z",
+            "modified": "2024-03-04T04:39:47.363Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "41a8acbc-48f2-4756-b78a-9dc35a197b42",
+            "colId": "588bceea-173e-4e42-99a1-74d78732077c",
+            "containerId": "2aa9b702-9566-40a2-905e-6d895915cef5",
+            "name": "view courses",
+            "url": "/courses/viewCourses",
+            "method": "POST",
+            "sortNum": 130000,
+            "created": "2024-03-04T04:48:38.658Z",
+            "modified": "2024-03-04T04:55:26.983Z",
             "headers": [],
             "params": [],
             "tests": []

@@ -38,7 +38,12 @@ export const registerStudent = async (req, res) => {
 export const registerTeacher = async (req, res) => {
     try {
         let { username, email, password, name, surname } = req.body;
-        let existingStudent = await Student.findOne({ username });
+        let existingStudent = await Student.findOne({
+            $or: [
+                { username: username },
+                { email: email }
+            ]
+        });
         if (existingStudent) {
             return res.status(400).send({ message: 'username already exists in Student' });
         }
@@ -47,7 +52,7 @@ export const registerTeacher = async (req, res) => {
         if (existingTeacher) {
             return res.status(400).send({ message: 'username already exists in Teacher' });
         }
-        
+
         let hashedPassword = await bcrypt.hash(password, 10);
         let teacher = new Teacher({ username, email, password: hashedPassword, name, surname });
         await teacher.save();

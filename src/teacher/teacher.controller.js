@@ -1,5 +1,6 @@
 import Course from '../auth/course.model.js';
 import Student from '../student/student.model.js';
+import Teacher from './teacher.model.js';
 
 //Crear un nuevo curso
 export const createCourse = async (req, res) => {
@@ -24,20 +25,15 @@ export const createCourse = async (req, res) => {
 //editar curso
 export const editCourse = async (req, res) => {
     try {
-        //Verificar si el curso existe y pertenece al maestro
-        const course = await Course.findOne({ _id: req.params.id, teacher: req.user.id })
-        if (!course) {
-            return res.status(404).send({ message: 'Curso no encontrado o no autorizado' })
-        }
-        //Actualizar los datos del curso
-        course.name = req.body.name || course.name;
-        course.description = req.body.description || course.description;
-
-        //Guardar cambios
-        await course.save();
-
-        res.status(200).send({ message: `Curso ${course} actualizado existosamente` });
-
+        let { id } = req.params
+        let data = req.body
+        let updatedCourse = await Course.findOneAndUpdate(
+            { _id: id },
+            data,
+            { new: true }
+        )
+        if (!updatedCourse) return res.status(401).send({ message: 'Course not found and not updated' })
+        return res.send({ message: 'Updated course', updatedCourse})
     } catch (error) {
         console.error(error)
         res.status(500).send({ message: 'Error al actualizar el curso' })
@@ -45,47 +41,31 @@ export const editCourse = async (req, res) => {
 }
 
 //Eliminar un curso
-export const deleteCourse = async(req, res)=>{
+export const erase = async (req, res) => {
     try {
-        //Verificar si el curso existe y pertenece al maestro
-        const course = await Course.findOne({_id: req.params.id, teacher: req.user.id})
-        if (!course){
-            return res.status(404).send({message: 'Curso no encontrado o no autorizado'});
-        }
+        //obtener id
+        let { id } = req.params
+        let deletedCourse = await Course.findOneAndDelete({ _id: id })
+        //verificacion
+        if (!deletedCourse) return res.status(404).send({ message: 'Course not found and not deleted' })
+        return res.send({ message: `Course whit name ${deletedCourse.name} deleted successfully` })
 
-        //Desvincular estudiantes asociados al curso
-        await Student.updateMany({ courses: req.params.id }, { $pull: { courses: req.params.id } });
-
-
-        //Eliminar el curso
-        await course.remove();
-
-        res.status(200).send({message: 'Curso eliminado exitosamente'})
-        
-    } catch (error) {
-        console.error(error);
-        res.status(500).send({message: 'Error al eliminar el curso'});
-        
+    } catch (err) {
+        console.error(err)
+        return res.status(500).send({ message: `error deleting Course` })
     }
-};
+}
 
 
 //obtener los cursos asociados a un maestro
 export const getCoursesForTeacher = async (req, res) => {
     try {
-        // Obtenemos el ID del maestro autenticado
-        const teacherId = req.user._id;
+        let { search } = req.body
+        let teacher = await Course.find(
+            {name: search} 
+        )
+        if(!teacher) return res.status(404).send({message: 'Courses found', course})
 
-        // Buscamos los cursos asociados al maestro por su ID
-        const courses = await Course.find({ teacher: teacherId });
-
-        // Si no se encuentran cursos, respondemos con un mensaje
-        if (!courses || courses.length === 0) {
-            return res.status(404).json({ message: 'No courses found for this teacher.' });
-        }
-
-        // Respondemos con los cursos encontrados
-        res.status(200).send(courses);
     } catch (error) {
         console.error(error);
         res.status(500).send({ message: 'Internal server error.' });

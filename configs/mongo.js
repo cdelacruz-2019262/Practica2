@@ -31,6 +31,7 @@ export const connectDB = async () => {
                     name: 'defaultTeacher',
                     surname: 'default',
                     username: 'default',
+                    email: 'defaulemail@gmail.com',
                     password: hashedPassword, 
                     email: 'teacher@example.com',
                     versionKey: false
